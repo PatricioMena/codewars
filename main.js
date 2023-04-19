@@ -28,6 +28,20 @@ const noOdds = (values) => values.filter((value) => value % 2 === 0);
 // ["Eyes", "Glasses", "Monocles", "Telescopes"]
 
 // All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.
-const arr = ['Telescopes', 'Glasses', 'Eyes', 'Monocles'];
+// const arr = ['Telescopes', 'Glasses', 'Eyes', 'Monocles'];
 
 const sortByLength = (arr) => arr.sort((a, b) => a.length - b.length);
+
+// Largest Elements
+// Write a program that outputs the top n elements from a list.
+// largest(2, [7,6,5,4,3,2,1])
+// Output => [6,7]
+
+const largest = (n, array) => array.sort((b, a) => a - b).slice(array.length - n);
+
+console.log(largest(2, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]));
+
+// const arr = [7, 6, 5, 4, 3, 2, 1];
+// const arrSorted = arr.sort((b, a) => a - b);
+// const newArr = arrSorted[2];
+// console.log(newArr);
