@@ -17,9 +17,8 @@ function XO(str) {
 // All values in the array will be integers. Return the good values in the order they are given.
 const noOdds = (values) => values.filter((value) => value % 2 === 0);
 
-// Sort array by string length
+//// Sort array by string length
 // Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
-
 // For example, if this array were passed as an argument:
 // ["Telescopes", "Glasses", "Eyes", "Monocles"]
 
@@ -32,7 +31,7 @@ const noOdds = (values) => values.filter((value) => value % 2 === 0);
 
 const sortByLength = (arr) => arr.sort((a, b) => a.length - b.length);
 
-// Largest Elements
+//// Largest Elements
 // Write a program that outputs the top n elements from a list.
 // largest(2, [7,6,5,4,3,2,1])
 // Output => [6,7]
@@ -41,7 +40,15 @@ const largest = (n, array) => array.sort((b, a) => a - b).slice(array.length - n
 
 console.log(largest(2, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]));
 
-// const arr = [7, 6, 5, 4, 3, 2, 1];
-// const arrSorted = arr.sort((b, a) => a - b);
-// const newArr = arrSorted[2];
-// console.log(newArr);
+//// Between Extremes
+// Given an array of numbers, return the difference between the largest and smallest values.
+
+// For example:
+
+// [23, 3, 19, 21, 16] should return 20 (i.e., 23 - 3).
+
+// [1, 434, 555, 34, 112] should return 554 (i.e., 555 - 1).
+
+// The array will contain a minimum of two elements. Input data range guarantees that max-min will cause no integer overflow.
+const betweenExtremes = (numbers) => console.log(...numbers);
+console.log(betweenExtremes([23, 3, 19, 21, 16]));
