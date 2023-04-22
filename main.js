@@ -71,3 +71,27 @@ const countSheeps = (arrayOfSheep) => arrayOfSheep.filter(Boolean).length;
 
 const findAverage = (array) =>
   array.length === 0 ? 0 : array.reduce((acc, currVal) => acc + currVal, 0) / array.length;
+
+//// <7 kyu>
+// Sum of Minimums!
+// Given a 2D ( nested ) list ( array, vector, .. ) of size m * n, your task is to find the sum of the minimum values in each row.
+// [ [ 1, 2, 3, 4, 5 ]        #  minimum value of row is 1
+// , [ 5, 6, 7, 8, 9 ]        #  minimum value of row is 5
+// , [ 20, 21, 34, 56, 100 ]  #  minimum value of row is 20
+// ]
+const someArr = [
+  [1, 2, 3, 4, 5],
+  [5, 6, 7, 8, 9],
+  [20, 21, 34, 56, 100]
+];
+
+const sumOfMinimums = (arr) => Math.min(...arr);
+console.log(someArr);
+
+//// <8 kyu>
+// const fixTheMeerkat = (arr) =>
+//   ([arr[0], arr[1], arr[arr.length - 1]] = [arr[arr.length - 1], arr[1], arr[0]]);
+const fixTheMeerkat = (arr) => arr.reverse();
+// The reverse() method: first array element now becoming last, and the last array elemen becoming the first.
+
+console.log(fixTheMeerkat(['tail', 'body', 'head']));
