@@ -95,3 +95,45 @@ const fixTheMeerkat = (arr) => arr.reverse();
 // The reverse() method: first array element now becoming last, and the last array elemen becoming the first.
 
 console.log(fixTheMeerkat(['tail', 'body', 'head']));
+
+///<7 kyu> The Office I - Outed
+const outed = (meet, boss) => {
+  // Checking if given boss
+  if (boss in meet) {
+    meet[boss] *= 2;
+  }
+
+  // Converting object values in an array
+  let userRating = Object.values(meet);
+  // Sum of values in the array
+  let rating = userRating.reduce((acc, currVal) => acc + currVal) / userRating.length;
+
+  if (rating <= 5) {
+    return 'Get Out Now!';
+  } else return `Nice Work Champ!`;
+};
+
+// function outed(meet, boss) {
+//   let names = Object.keys(meet)
+//   let score = names.reduce((s,v) => s + meet[v], 0) + meet[boss]
+//   return score / names.length > 5 ? 'Nice Work Champ!' : 'Get Out Now!'
+// }
+
+console.log(
+  outed(
+    {
+      tim: 0,
+      jim: 2,
+      randy: 0,
+      sandy: 7,
+      andy: 0,
+      katie: 5,
+      laura: 1,
+      saajid: 2,
+      alex: 3,
+      john: 2,
+      mr: 0
+    },
+    'laura'
+  )
+);
