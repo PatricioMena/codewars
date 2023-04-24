@@ -137,3 +137,57 @@ console.log(
     'laura'
   )
 );
+
+//// <6 kyu> Maze runner
+const mazeRunner = (maze, directions) => {
+  /// Finding starting point
+  // First find index of array where there's the number 2
+  let y = maze.findIndex((arr) => arr.includes(2)); //6
+  // Next I find the index of the number 2 inside it's own array
+  let x = maze[y].indexOf(2); // 1
+  let curPos;
+  console.log(y, x);
+
+  // Walking through arrays values
+  for (let i = 0; i < directions.length; i++) {
+    if (directions[i] === 'N') y--;
+    if (directions[i] === 'S') y++;
+    if (directions[i] === 'E') x++;
+    if (directions[i] === 'W') x--;
+    //I get out from the maze when y > 6 or y < 0
+    if (!maze[y]) return 'Dead';
+
+    curPos = maze[y][x];
+    if (curPos === 1 || curPos === undefined) return 'Dead';
+    if (curPos === 3) return 'Finish';
+  }
+
+  return 'Lost';
+};
+
+const maze = [
+  [1, 1, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 3],
+  [1, 0, 1, 0, 1, 0, 1],
+  [0, 0, 1, 0, 0, 0, 1],
+  [1, 0, 1, 0, 1, 0, 1],
+  [1, 0, 0, 0, 0, 0, 1],
+  [1, 2, 1, 0, 1, 0, 1]
+];
+
+direction = ['N', 'N', 'N', 'N', 'N', 'E', 'E', 'E', 'E', 'E'] == 'Finish';
+
+//(y, x) = maze[y][x]
+// starting point index (6, 1)
+// 1 iteration: (5, 1);
+// 2 iterarion: (4, 1);
+// 3 iteration: (3, 1);
+// 4 iteration: (2, 1);
+// 5 iteration: (1, 1);
+// 6 iteration: (1, 2);
+// 7 iteration: (1, 3);
+// 8 iteration: (1, 4);
+// 9 iteration: (1, 5);
+// 10 iteration: (1, 6);
+
+console.log(mazeRunner(maze, direction));
