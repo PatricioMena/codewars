@@ -191,3 +191,40 @@ direction = ['N', 'N', 'N', 'N', 'N', 'E', 'E', 'E', 'E', 'E'] == 'Finish';
 // 10 iteration: (1, 6);
 
 console.log(mazeRunner(maze, direction));
+
+//// <7 kyu> Flatten and sort an array.
+// Challenge:
+// Given a two-dimensional array of integers, return the flattened version of the array with all the integers in the sorted (ascending) order.
+
+// Example:
+
+// Given [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]], your function should return [1, 2, 3, 4, 5, 6, 7, 8, 9].
+// const flattenAndSort = (array) => {
+//   let newArr = [];
+
+//   for (let j = 0; j < array.length; j++) {
+//     for (let i = 0; i < array[j].length; i++) {
+//       newArr.push(array[j][i]);
+//       // return array[j][i].sort((a, b) => a - b);
+//     }
+//   }
+//   return newArr.sort((a, b) => a - b);
+// };
+
+// Other solutions:
+// function flattenAndSort(array) {
+//   return [].concat(...array).sort((a, b) => a - b);
+// }
+
+// const flattenAndSort = (array) => array.flat().sort((a, b) => a-b);
+
+// function flattenAndSort(array) {
+//   return array.reduce((result, current) => [...result, ...current], []).sort((a, b) => a - b);
+// }
+console.log(flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]]));
+
+//// <8 kyu> Square(n) Sum
+// Complete the square sum function so that it squares each number passed into it and then sums the results together.
+
+// For example, for [1, 2, 2] it should return 9 because 12+22+22=91^2 + 2^2 + 2^2 = 912+22+22=9.
+const squareSum = (numbers) => numbers.reduce((acc, curr) => acc + curr ** 2, 0);
