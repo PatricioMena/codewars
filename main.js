@@ -199,19 +199,19 @@ console.log(mazeRunner(maze, direction));
 // Example:
 
 // Given [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]], your function should return [1, 2, 3, 4, 5, 6, 7, 8, 9].
-// const flattenAndSort = (array) => {
-//   let newArr = [];
+const flattenAndSort = (array) => {
+  let newArr = [];
 
-//   for (let j = 0; j < array.length; j++) {
-//     for (let i = 0; i < array[j].length; i++) {
-//       newArr.push(array[j][i]);
-//       // return array[j][i].sort((a, b) => a - b);
-//     }
-//   }
-//   return newArr.sort((a, b) => a - b);
-// };
+  for (let j = 0; j < array.length; j++) {
+    for (let i = 0; i < array[j].length; i++) {
+      newArr.push(array[j][i]);
+      // return array[j][i].sort((a, b) => a - b);
+    }
+  }
+  return newArr.sort((a, b) => a - b);
+};
 
-// Other solutions:
+// Other solutions in codewars:
 // function flattenAndSort(array) {
 //   return [].concat(...array).sort((a, b) => a - b);
 // }
@@ -228,3 +228,39 @@ console.log(flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]]));
 
 // For example, for [1, 2, 2] it should return 9 because 12+22+22=91^2 + 2^2 + 2^2 = 912+22+22=9.
 const squareSum = (numbers) => numbers.reduce((acc, curr) => acc + curr ** 2, 0);
+
+//// <8 kyu> The Feast of Many Beasts
+const feast = (beast, dish) => dish.startsWith(beast[0]) && dish.endsWith(beast[beast.length - 1]);
+
+console.log(feast('great blue heron', 'garlic naan'));
+console.log(feast('chickadee', 'chocolate cake'));
+console.log(feast('brown bear', 'bear claw'));
+
+//// <7 kyu> Dot Calculator
+const dotCalculator = (equation) => {
+  let arr = equation.split(' ');
+  let operator = arr[1];
+  let num;
+  if (operator === '+') num = arr[0].length + arr[2].length;
+  if (operator === '-') num = arr[0].length - arr[2].length;
+  if (operator === '*') num = arr[0].length * arr[2].length;
+  if (operator === '//') num = arr[0].length / arr[2].length;
+  return `${'.'.repeat(num)}`;
+};
+
+// const dotCalculator = (equation) => {
+//   const operations = {
+//     '+' : (a, b) => a + b,
+//     '-' : (a, b) => a - b,
+//     '*' : (a, b) => a * b,
+//     '//': (a, b) => a / b,
+//   };
+//   const [left, operator, right] = equation.split(' ');
+//   return '.'.repeat(operations[operator](left.length, right.length));
+// }
+
+console.log(dotCalculator('..... + ...............'));
+console.log(dotCalculator('..... - ...'));
+console.log(dotCalculator('..... * ...'));
+console.log(dotCalculator('..... // ..'));
+console.log(dotCalculator('. - .'));
