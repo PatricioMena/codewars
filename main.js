@@ -264,3 +264,22 @@ console.log(dotCalculator('..... - ...'));
 console.log(dotCalculator('..... * ...'));
 console.log(dotCalculator('..... // ..'));
 console.log(dotCalculator('. - .'));
+
+//// <6 kyu> Count characters in your string
+// const count = (string) => {};
+// function count(string) {
+//   let count = {};
+//   string.split('').forEach((s) => (count[s] ? count[s]++ : (count[s] = 1)));
+//   return count;
+// }
+
+console.log(count('aba'));
+
+class Count {
+  constructor(string) {
+    string.split('').forEach((s) => (this[s] ? this[s]++ : (this[s] = 1)));
+  }
+}
+
+const s = new Count('aba');
+console.log(s);
