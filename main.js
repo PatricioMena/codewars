@@ -229,14 +229,15 @@ console.log(flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]]));
 // For example, for [1, 2, 2] it should return 9 because 12+22+22=91^2 + 2^2 + 2^2 = 912+22+22=9.
 const squareSum = (numbers) => numbers.reduce((acc, curr) => acc + curr ** 2, 0);
 
-//// <8 kyu> The Feast of Many Beasts
+// <------String ladder------->
+// <------<8 kyu> The Feast of Many Beasts----->
 const feast = (beast, dish) => dish.startsWith(beast[0]) && dish.endsWith(beast[beast.length - 1]);
 
 console.log(feast('great blue heron', 'garlic naan'));
 console.log(feast('chickadee', 'chocolate cake'));
 console.log(feast('brown bear', 'bear claw'));
 
-//// <7 kyu> Dot Calculator
+// <------<7 kyu> Dot Calculator----->
 const dotCalculator = (equation) => {
   let arr = equation.split(' ');
   let operator = arr[1];
@@ -265,8 +266,7 @@ console.log(dotCalculator('..... * ...'));
 console.log(dotCalculator('..... // ..'));
 console.log(dotCalculator('. - .'));
 
-//// <6 kyu> Count characters in your string
-
+//  <------<6 kyu> Count characters in your string----->
 const count = (string) => {
   let count = {};
   string.split('').forEach((s) => (count[s] ? count[s]++ : (count[s] = 1)));
@@ -284,20 +284,27 @@ class Count {
 const s = new Count('aba');
 console.log(s);
 
-//// <7 kyu> insert dashes
+//  <------<7 kyu> Insert dashes----->
 // function insertDash(num) {
 //   return num.toString().replace(/[13579](?=[13579])/g, '$&-');
 // }
+// replace(): string as replacement -> $& means inserts the matched substring
 
 const insertDash = (num) => {
-  return num
-    .toString()
-    .split('')
-    .reduce((acc, c, i, arr) => {
-      if (i > 0 && Number(arr[i]) % 2 !== 0 && Number(arr[i - 1]) % 2 !== 0) acc = acc + '-';
-
-      return acc + c;
-    }, '');
+  let arrNum = num.toString().split('');
+  for (let i = 0; i < arrNum.length; i++) {
+    // it needs to use "> 0" because in the last iteration it will be: arrNum[i] = 3 and arrNum[i + 1] = undefined.undefined !== 0 is true so it will give the three a dash.
+    if (arrNum[i] % 2 > 0 && arrNum[i + 1] % 2 > 0) {
+      // console.log(arrNum[i], arrNum[i + 1]);
+      arrNum[i] += '-';
+    }
+  }
+  return arrNum.join('');
 };
 
 console.log(insertDash(454793));
+
+//  <------<8 kyu> Remove First and Last Character----->
+const removeChar = (str) => str.slice(1, -1);
+//slice() extract a section of the string and return new string. indexStart index to include, indexEnd first index to exclude
+console.log(removeChar('eloquent'));
