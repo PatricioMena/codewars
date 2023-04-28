@@ -266,12 +266,12 @@ console.log(dotCalculator('..... // ..'));
 console.log(dotCalculator('. - .'));
 
 //// <6 kyu> Count characters in your string
-// const count = (string) => {};
-// function count(string) {
-//   let count = {};
-//   string.split('').forEach((s) => (count[s] ? count[s]++ : (count[s] = 1)));
-//   return count;
-// }
+
+const count = (string) => {
+  let count = {};
+  string.split('').forEach((s) => (count[s] ? count[s]++ : (count[s] = 1)));
+  return count;
+};
 
 console.log(count('aba'));
 
@@ -283,3 +283,21 @@ class Count {
 
 const s = new Count('aba');
 console.log(s);
+
+//// <7 kyu> insert dashes
+// function insertDash(num) {
+//   return num.toString().replace(/[13579](?=[13579])/g, '$&-');
+// }
+
+const insertDash = (num) => {
+  return num
+    .toString()
+    .split('')
+    .reduce((acc, c, i, arr) => {
+      if (i > 0 && Number(arr[i]) % 2 !== 0 && Number(arr[i - 1]) % 2 !== 0) acc = acc + '-';
+
+      return acc + c;
+    }, '');
+};
+
+console.log(insertDash(454793));
