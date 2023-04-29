@@ -308,3 +308,6 @@ console.log(insertDash(454793));
 const removeChar = (str) => str.slice(1, -1);
 //slice() extract a section of the string and return new string. indexStart index to include, indexEnd first index to exclude
 console.log(removeChar('eloquent'));
+
+// <------<7 kyu> Number Of Occurrences----->
+const rowSumOddNumbers = (n) => Math.pow(n, 3);
