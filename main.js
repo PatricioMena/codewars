@@ -311,3 +311,18 @@ console.log(removeChar('eloquent'));
 
 // <------<7 kyu> Number Of Occurrences----->
 const rowSumOddNumbers = (n) => Math.pow(n, 3);
+
+// <------<7 kyu> Number Of Occurrences----->
+const consecutive = (arr) => {
+  let counter = 0;
+  let sortArr = arr.sort((a, b) => a - b);
+
+  for (let i = 0; i < arr.length; i++) {
+    if (sortArr[i + 1] - sortArr[i] > 1) {
+      counter++;
+    }
+  }
+  return counter;
+};
+
+console.log(consecutive([4, 6, 8]));
