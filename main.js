@@ -326,3 +326,14 @@ const consecutive = (arr) => {
 };
 
 console.log(consecutive([4, 6, 8]));
+
+// <------<7 kyu> Arithmetic progression----->
+const arithmeticSequenceElements = (a, d, n) => {
+  let arr = [a];
+  for (let i = 1; i < n; i++) {
+    arr[i] = a + d;
+    a = arr[i];
+  }
+  return arr.join(', ');
+};
+console.log(arithmeticSequenceElements(1, 2, 5));
