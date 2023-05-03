@@ -337,3 +337,8 @@ const arithmeticSequenceElements = (a, d, n) => {
   return arr.join(', ');
 };
 console.log(arithmeticSequenceElements(1, 2, 5));
+
+// <------<7 kyu> Divide and Conquer----->
+const divCon = (x) => {
+  return x.reduce((acc, c) => (typeof c === 'number' ? acc + c : acc - Number(c)), 0);
+};
