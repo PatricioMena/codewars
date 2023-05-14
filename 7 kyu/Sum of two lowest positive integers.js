@@ -8,3 +8,8 @@ const sumTwoSmallestNumbers = (numbers) =>
     .sort((a, b) => a - b)
     .slice(0, 2)
     .reduce((acc, c) => acc + c);
+
+
+
+
+  
